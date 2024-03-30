@@ -2,11 +2,13 @@
 {% block content %}
 
 {% if have_charity == "Yes" %}
+
 <form action="/q2" method="POST">
     <p>What is the name of the charity?</p>
     <input type="text" id="charity_name" name="charity_name">
 </form>
 {% else %}
+<br>
 <form action="/q2" method="POST">
     <p>What type of charity would you like to donate to?</p>
     <input type="text" id="charity_type" name="charity_type"><br>

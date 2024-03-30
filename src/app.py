@@ -14,6 +14,10 @@ def question():
     else:
         have_charity = request.form['have_charity']
         return render_template('q2.html', have_charity=have_charity)
+    
+@app.route('/q2')
+def q2():
+    return render_template('q2.html')
 
 
 if __name__ == '__main__':
