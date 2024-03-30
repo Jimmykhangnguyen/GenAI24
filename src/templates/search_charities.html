@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="row">
+        <!--print out the list of charities-->
+        {% for charity in charities %}
+        <div  class="charity-cards">
+            <p>Charity Name: {{ charity.name }}</p>
+            <p>Charity Type: {{ charity.type }}</p>
+            <p>Charity Location: {{ charity.location }}</p>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
