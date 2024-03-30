@@ -17,7 +17,32 @@
         <input type="submit" value="Submit">
     </form>
 
-    {% block content %}
-    {% endblock %}
+    {% if have_charity == "Yes" %}
+
+    <form action="/charity_info" method="POST">
+        <p>What is the name of the charity?</p>
+        <input type="text" id="charity_name" name="charity_name">
+        <input type="submit" value="Submit">
+    </form>
+    {% else %}
+    <br>
+    <form action="/search_charities" method="POST">
+        <p>What type of charity would you like to donate to?</p>
+        <select name="charities" id="charities">
+            <option value="environmental">Environmental</option>
+            <option value="children">Children's</option>
+            <option value="animal">Animal</option>
+            <option value="human_rights">Human Rights</option>
+        </select>
+        <p>Where do you want the charity to donate to?</p>
+        <select name="locations" id="locations">
+            <option value="canada">Canada</option>
+            <option value="united_states">USA</option>
+            <option value="germany">Germany</option>
+            <option value="united_kingdom">UK</option>
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+    {% endif %}
 </body>
 </html>
