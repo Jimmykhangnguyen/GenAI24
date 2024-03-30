@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/CSS/styles.css">
+</head>
+<body>
+
+    <form action="/question" method="POST">
+        <p>Do you have a charity in mind?</p>
+        <input type="radio" id="yes" name="have_charity" value="Yes">
+        <label for="yes">Yes</label><br>
+        <input type="radio" id="no" name="have_charity" value="No">
+        <label for="no">No</label>
+        <input type="submit" value="Submit">
+    </form>
+
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

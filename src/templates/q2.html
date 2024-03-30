@@ -1,0 +1,20 @@
+{% extends "question.html" %}
+{% block content %}
+
+{% if have_charity == "Yes" %}
+<form action="/q2" method="POST">
+    <p>What is the name of the charity?</p>
+    <input type="text" id="charity_name" name="charity_name">
+</form>
+{% else %}
+<form action="/q2" method="POST">
+    <p>What type of charity would you like to donate to?</p>
+    <input type="text" id="charity_type" name="charity_type"><br>
+    <p>Where do you want the charity to donate to?</p>
+    <input type="text" id="charity_location" name="charity_location"><br>
+    <input type="submit" value="Submit">
+</form>
+{% endif %}
+
+
+{% endblock %}
