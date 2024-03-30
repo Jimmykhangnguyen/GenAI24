@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="center">
+    <h1>Charities</h1>
+</div>
+
+<div class="container">
+<div class="card" id="card1">
+    <img src="">
+    <div class="card-content">
+        <h2>Charity 1: </h2>
+        <p>cool info</p>
+    </div>
+    <div class="popup" id="popup1">
+        <div class="popup-content">
+            <img src="" alt="analysis of charity one">
+            <p>omg good charity</p>
+            <button id="close-button">Close</button>
+        </div>
+    </div>
+</div>
+
+<div class="card" id="card2">
+    <img src="">
+    <div class="card-content">
+        <h2>Charity 2: </h2>
+        <p>cool info</p>
+    </div>
+    <div class="popup" id="popup2">
+        <div class="popup-content">
+            <img src="" alt="analysis of charity two">
+            <p>omg also good charity</p>
+            <button id="close-button">Close</button>
+        </div>
+    </div>
+</div>
+
+<div class="card" id="card3">
+    <img src="">
+    <div class="card-content">
+        <h2>Charity 3: </h2>
+        <p>cool info</p>
+    </div>
+    <div class="popup boxcenter" id="popup3" >
+        <div class="popup-content">
+            <img src="" alt="analysis of charity three">
+            <p>omg bad charity</p>
+            <button id="close-button">Close</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const popupId = card.id.replace('card', 'popup');
+            const popup = document.getElementById(popupId);
+            popup.style.display = 'block';
+        });
+    });
+
+    const closeButtons = document.querySelectorAll('.close-button');
+
+    closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const popupId = button.id.replace('close-button', 'popup');
+            const popup = document.getElementById(popupId);
+            popup.style.display = 'none';
+        });
+    });
+</script>
+
+{% endblock %}
