@@ -12,6 +12,8 @@
 {% else %}
 <br>
 <form action="/search_charities" method="POST">
+    <div>
+    <div class="boxcenter">
     <h2>What type of charity would you like to donate to?</h2>
     <select name="charities" id="charities">
         <option value="environmental">Environmental</option>
@@ -19,7 +21,8 @@
         <option value="animal">Animal</option>
         <option value="human_rights">Human Rights</option>
     </select>
-    <br>
+    </div>
+    <div class="boxcenter">
     <h2>Where do you want the charity to donate to?</h2>
     <select name="locations" id="locations">
         <option value="canada">Canada</option>
@@ -27,6 +30,8 @@
         <option value="germany">Germany</option>
         <option value="united_kingdom">UK</option>
     </select>
+    </div>
+    </div>
     <input type="submit" value="Submit">
 </form>
 </div>

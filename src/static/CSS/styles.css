@@ -32,6 +32,7 @@
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: 30px;
 }
 
 
@@ -39,7 +40,7 @@
     display: none;
     top: 50%;
     left: 50%;
-    background-color: #fff;
+    background-color: #fef7ca2f;
     width: 300px;
     padding: 20px;
     border-radius: 5px;
@@ -57,10 +58,10 @@
 
 .boxcenter {
     justify-content: center;
+    margin: 30px;
 }
 
 form {
-    display: flex;
     justify-content: center;
     text-align: center;
     padding: 10px;
@@ -72,7 +73,6 @@ body {
     padding: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     background-color: #283618;
-    /* display: flex; */
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -119,8 +119,4 @@ body {
     padding: 20px;
     margin-top: 10px;   
     text-align: center;
-}
-
-br {
-    padding: 20px;
 }
