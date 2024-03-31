@@ -1,4 +1,6 @@
 import json
+import os
+import shutil
 
 import numpy as np
 import prompts
@@ -82,6 +84,13 @@ def graphing(
     charities: dict,
     dir: str = 'images/'
 ) -> list:
+  
+  try:
+    shutil.rmtree(dir)
+  except FileNotFoundError:
+    pass
+  os.mkdir(dir)
+
   lst = []
   for agency in charities:
     # Access spending data from the JSON
