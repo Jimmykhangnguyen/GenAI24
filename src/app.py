@@ -92,7 +92,9 @@ def search_charities():
     return render_template(
         'search_charities.html',
         charity=[charity_type, charity_location],
-        charities=listview)
+        charities=listview,
+        combined_image=filenames['combined']
+    )
 
 
 if __name__ == '__main__':

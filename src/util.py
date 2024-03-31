@@ -83,18 +83,19 @@ def get_charities(
 def graphing(
     charities: dict,
     dir: str = 'images/'
-) -> list:
+) -> dict[str, str]:
   
+  path = os.path.join('static', dir)
   try:
     shutil.rmtree(dir)
   except FileNotFoundError:
     pass
-  os.mkdir(dir)
+  os.makedirs(path, exist_ok=True)
 
-  lst = []
-  for agency in charities:
+  result = {}
+  for charity in charities:
     # Access spending data from the JSON
-    data = charities[agency]["spending"]
+    data = charities[charity]["spending"]
 
     # Calculate total spending
     total_spending = sum(data.values())
@@ -110,10 +111,11 @@ def graphing(
     # Create pie chart
     plt.figure(figsize=(3, 3))
     plt.pie(pie_chart_data, labels=pie_chart_labels, autopct="%1.1f%%")
-    plt.title(agency + " Spending Percentages")
-    with open(dir + agency.replace(' ', '_') + '.png', 'wb') as f:
+    plt.title(charity + " Spending Percentages")
+    file_path = os.path.join(path, charity.replace(' ', '_') + '.png')
+    with open(file_path, 'wb') as f:
       plt.savefig(f)
-    lst.append(dir + agency.replace(' ', '_') + '.png')
+    result[charity] = file_path
 
     agencies = list(charities.keys())
     transparency = np.array([])
@@ -140,11 +142,12 @@ def graphing(
   ax.set_title("Rating of each charity")
   ax.legend(loc="upper right")
 
-  with open('images/' + 'ratings.png', 'wb') as f:
+  file_path = os.path.join(path, 'ratings.png')
+  with open(file_path, 'wb') as f:
     fig.savefig(f)
-  lst.append('images/' + 'ratings.png')
-
-  return lst
+  
+  result['combined'] = file_path
+  return result
 
 if __name__ == '__main__':
   import pprint
