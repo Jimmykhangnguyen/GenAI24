@@ -5,4 +5,16 @@
         <p>The ultimate guide to your donation decision!</p>
         <p>Aiding you in making the world a better place</p>
     </div>
+
+    
+    <div class="questions">
+        <form action="/question" method="POST">
+            <p>Do you have a charity in mind?</p>
+            <input class="larger-font" type="radio" id="yes" name="have_charity" value="Yes">
+            <label class="larger-font" for="yes">Yes</label><br>
+            <input class="larger-font" type="radio" id="no" name="have_charity" value="No" checked>
+            <label class="larger-font" for="no">No</label><br>
+            <input class="larger-font" type="submit" value="Submit">
+        </form>
+    </div>
 {% endblock %}

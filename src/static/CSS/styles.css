@@ -1,18 +1,98 @@
-body {
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+  }
 
+  .card {
+    flex-grow: 1;
+    width: 30%;
+    margin: 20px;
+    border: 1px solid #fef7ca;
+    border-radius: 5px;
+    font-size: x-large;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.card-content {
+    padding: 15px;
+    flex-grow: 1;
+}
+
+.container {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 40px;
+}
+
+
+.popup {
+    display: none;
+    top: 50%;
+    left: 50%;
+    background-color: #fef7ca2f;
+    width: 300px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    z-index: auto;
+}
+
+.popup-content {
+    text-align: center;
+}
+
+.show {
+    display: block;
+}
+
+.boxcenter {
+    justify-content: center;
+    margin: 30px;
+    margin: 30px;
+}
+
+form {
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    margin: 30px;
+}
+
+form {
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    margin: 30px;
+}
+
+body {
     margin: 0;
     padding: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: #3B5C10;
-    display: flex;
+    font-size:xx-large;
+    background-color: #283618;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    color:#fef7ca; 
+}
 
 .mainPage {
     width: 90%;
-    position: absolute;
-    color: white;
+    position: relative;
+    color: #fef7ca;
     top: 25%;
     left: 5%;
     transform: translate(-50,-50);
@@ -21,11 +101,34 @@ body {
 
 .mainPage h1 {
     margin-bottom: -1vh;
-    color: rgb(246, 213, 27);
+    color: #E9AE0B;
+    color: #E9AE0B;
     font-size: 13vh;
 }
 
 .mainPage p {
-    font-size: 17px;
+    font-size: 23px;
     margin-bottom: -8px;
+
+
+}
+
+.charity-cards {
+    background-color: #FEFAE0;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.charityInfo {
+    justify-content: center;
+    padding: 20px;
+    margin-top: 10px;
+    text-align: center;
 }
