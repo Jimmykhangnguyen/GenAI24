@@ -1,6 +1,7 @@
 import json
 import os
 import shutil
+import textwrap
 
 import numpy as np
 import prompts
@@ -85,6 +86,8 @@ def graphing(
     dir: str = 'images/'
 ) -> dict[str, str]:
   
+  label_size = 8
+
   path = os.path.join('static', dir)
   try:
     shutil.rmtree(dir)
@@ -110,8 +113,9 @@ def graphing(
 
     # Create pie chart
     plt.figure(figsize=(3, 3))
-    plt.pie(pie_chart_data, labels=pie_chart_labels, autopct="%1.1f%%")
-    plt.title(charity + " Spending Percentages")
+    plt.pie(pie_chart_data, autopct="%1.1f%%")
+    plt.title("Spending Breakdown")
+    plt.legend(loc='upper center', labels=pie_chart_labels, fontsize=label_size)
     file_path = os.path.join(path, charity.replace(' ', '_') + '.png')
     with open(file_path, 'wb') as f:
       plt.savefig(f)
@@ -135,13 +139,25 @@ def graphing(
   fig, ax = plt.subplots()
   bottom = np.zeros(3)
 
-  for boolean, weight_count in weight_counts.items():
-    p = ax.bar(agencies, weight_count, width, label=boolean, bottom=bottom)
-    bottom += weight_count
+
+  for name, weight_count in weight_counts.items():
+    ax.bar(
+      [textwrap.fill(name, 15) for name in agencies],
+      weight_count,
+      width,
+      label=name,
+      bottom=bottom,
+    )
+    for i in range(len(weight_count)):
+      try:
+        bottom[i] += float(weight_count[i])
+      except (TypeError, ValueError):
+        pass
 
   ax.set_title("Rating of each charity")
-  ax.legend(loc="upper right")
-
+  ax.xaxis.label.set_size(label_size)
+  ax.legend(loc="upper right", fontsize=label_size)
+  
   file_path = os.path.join(path, 'ratings.png')
   with open(file_path, 'wb') as f:
     fig.savefig(f)
