@@ -46,7 +46,7 @@ def home():
 @app.route('/question', methods=['GET', 'POST'])
 def question():
     if request.method == 'GET':
-        return render_template('question.html')
+        return render_template('home.html')
     else:
         have_charity = request.form['have_charity']
         return render_template('q2.html', have_charity=have_charity)

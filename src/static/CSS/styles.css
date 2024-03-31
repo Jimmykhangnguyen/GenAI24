@@ -1,5 +1,5 @@
 body {
-    background-color: #FEFAE0;
+    background-color: #3B5C10;
     color: #283638;
 }
 
@@ -77,8 +77,17 @@ body {
 
 .mainPage {
     width: 90%;
-    position: absolute;
+    position: relative;
     color: white;
+    top: 25%;
+    left: 5%;
+    transform: translate(-50,-50);
+    text-align: center;
+}
+
+.questions {
+    width: 90%;
+    position: relative;
     top: 25%;
     left: 5%;
     transform: translate(-50,-50);
