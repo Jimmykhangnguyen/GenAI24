@@ -4,19 +4,37 @@ app = Flask(__name__)
 
 charities = [
     {
-        'name': 'Charity 1',
-        'type': 'Type 1',
-        'location': 'Location 1',
+        "Name": "Canadian Cancer Society",
+        "Mission": "The Canadian Cancer Society is a national, community-based organization of volunteers whose mission is to eradicate cancer and enhance the quality of life of people living with cancer.",  
+        "Publicperceptionsonthescalefrom1to10": 8,  
+        "Impact": "The Canadian Cancer Society has a significant impact on the lives of Canadians affected by cancer. The organization provides a wide range of programs and services, including cancer research, patient support, and public education.",  
+        "FundraisingTechnique": "The Canadian Cancer Society raises funds through a variety of methods, including donations, special events, and corporate partnerships.",  
+        "Financialtransparency": 9
     },
     {
         'name': 'Charity 2',
         'type': 'Type 2',
-        'location': 'Location 2',
+        'info': 'Info 2',
     },
     {  
         'name': 'Charity 3',
         'type': 'Type 3',
-        'location': 'Location 3',
+        'info': 'Location 3',
+    },
+    {
+        'name': 'Charity 4',
+        'type': 'Type 1',
+        'info': 'Location 1',
+    },
+    {
+        'name': 'Charity 5',
+        'type': 'Type 2',
+        'info': 'Location 2',
+    },
+    {  
+        'name': 'Charity 6',
+        'type': 'Type 3',
+        'info': 'Location 3',
     }
 ]
 
