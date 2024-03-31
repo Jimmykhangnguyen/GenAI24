@@ -1,13 +1,122 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="row">
-        <!--print out the list of charities-->
-        {% for charity in charities %}
-        <div  class="charity-cards">
-            <p>Charity Name: {{ charity.name }}</p>
-            <p>Charity Type: {{ charity.type }}</p>
-            <p>Charity Location: {{ charity.location }}</p>
-        </div>
-        {% endfor %}
+
+<div class="center">
+    <h1>Charities</h1>
+</div>
+
+<div class="container">
+<div class="card" id="card1">
+    <img src="">
+    <div class="card-content">
+        <h2>Charity 1: </h2>
+        <p>cool info</p>
     </div>
+    <div class="popup" id="popup1">
+        <div class="popup-content">
+            <img src="" alt="analysis of charity one">
+            <p>omg good charity</p>
+            <button class="close-button">Close</button>
+        </div>
+    </div>
+</div>
+
+<div class="card" id="card2">
+    <img src="">
+    <div class="card-content">
+        <h2>Charity 2: </h2>
+        <p>cool info</p>
+    </div>
+    <div class="popup" id="popup2">
+        <div class="popup-content">
+            <img src="" alt="analysis of charity two">
+            <p>omg also good charity</p>
+            <button class="close-button">Close</button>
+        </div>
+    </div>
+</div>
+
+<div class="card" id="card3">
+    <img src="">
+    <div class="card-content">
+        <h2>Charity 3: </h2>
+        <p>cool info</p>
+    </div>
+    <div class="popup boxcenter" id="popup3" >
+        <div class="popup-content">
+            <img src="" alt="analysis of charity three">
+            <p>omg bad charity</p>
+            <button class="close-button">Close</button>
+        </div>
+    </div>
+</div>
+
+<div class="card" id="card4">
+    <img src="">
+    <div class="card-content">
+        <h2>Charity 4: </h2>
+        <p>cool info</p>
+    </div>
+    <div class="popup" id="popup4">
+        <div class="popup-content">
+            <img src="" alt="analysis of charity four">
+            <p>omg good charity</p>
+            <button class="close-button">Close</button>
+        </div>
+    </div>
+</div>
+
+<div class="card" id="card5">
+    <img src="">
+    <div class="card-content">
+        <h2>Charity 5: </h2>
+        <p>cool info</p>
+    </div>
+    <div class="popup" id="popup5">
+        <div class="popup-content">
+            <img src="" alt="analysis of charity five">
+            <p>omg also good charity</p>
+            <button class="close-button">Close</button>
+        </div>
+    </div>
+</div>
+
+<div class="card" id="card6">
+    <img src="">
+    <div class="card-content">
+        <h2>Charity 6: </h2>
+        <p>cool info</p>
+    </div>
+    <div class="popup boxcenter" id="popup6" >
+        <div class="popup-content">
+            <img src="" alt="analysis of charity six">
+            <p>omg bad charity</p>
+            <button class="c">Close</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const popupId = card.id.replace('card', 'popup');
+            const popup = document.getElementById(popupId);
+            popup.style.display = 'block';
+        });
+    });
+
+    const closeButtons = document.querySelectorAll('.close-button');
+
+    closeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        event.stopPropagation();
+        const popup = button.closest('.popup');
+        popup.style.display = 'none';
+    });
+    });
+</script>
+
 {% endblock %}

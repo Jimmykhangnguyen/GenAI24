@@ -12,7 +12,7 @@ body {
 
   .card {
     flex-grow: 1;
-    width: 300px;
+    width: 30%;
     margin: 20px;
     border: 1px solid #283638;
     border-radius: 5px;
@@ -39,6 +39,7 @@ body {
     flex-wrap: wrap;
 }
 
+
 .popup {
     display: none;
     top: 50%;
@@ -61,7 +62,9 @@ body {
 
 .boxcenter {
     justify-content: center;
-}body {
+}
+
+/* body {
     margin: 0;
     padding: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -70,7 +73,7 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-}
+} */
 
 .mainPage {
     width: 90%;
