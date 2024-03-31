@@ -59,8 +59,17 @@
 .boxcenter {
     justify-content: center;
     margin: 30px;
+    margin: 30px;
 }
 
+form {
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    margin: 30px;
+}
+
+body {
 form {
     justify-content: center;
     text-align: center;
@@ -72,6 +81,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #283618;
     background-color: #283618;
     justify-content: center;
     align-items: center;
@@ -92,12 +102,14 @@ body {
 .mainPage h1 {
     margin-bottom: -1vh;
     color: #E9AE0B;
+    color: #E9AE0B;
     font-size: 13vh;
 }
 
 .mainPage p {
     font-size: 17px;
     margin-bottom: -8px;
+
 
 }
 
