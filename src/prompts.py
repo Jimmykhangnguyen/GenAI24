@@ -1,5 +1,16 @@
 list_charities = '''
-The top 6 charities in {} Canada that is related to {}. The output should contain the names of the organizations only, separated by comma only.
+Get the top 3 charities (no duplicates) in {} Canada that is related to {}. For each of the charity, get:
+
+Charity name,
+Mission,
+PublicPerception (1-10),
+Impact,
+FundraisingTechnique,
+FinancialTransparency.
+
+The output should be in json.
+
+Be professional and use up to date information
 '''
 
 impact_prediction = '''
@@ -12,17 +23,21 @@ For the charity {} After overhead costs, what is the portion (in decimal) of mon
 '''
 
 details = '''
-You are a charity expert
-
-You are tasked with giving details of the charity organisation {} based on the following categories, with the same format:
+Give the details of the charity organisation {} including the following information:
 
 Mission
-Public perceptions on the scale from 1 to 10 (Be harse and strict, give reasoning for your grading)
+Public perceptions on the scale from 1 to 10 (Be harse and strict)
 Impact
 Fundraising Technique
-Financial transparency
+Financial transparency on the scale from 1 to 10
 
-Be professional and use up to date information and data and produce json, use trailing commas.
+Be professional and use up to date information and data and produce json where the top-level keys are
+
+Mission
+PublicPerception
+Impact
+FundraisingTechnique
+FinalcialTransparency
 '''
 
 amount_extraction = '''
