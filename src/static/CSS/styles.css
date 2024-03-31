@@ -11,7 +11,7 @@
     margin: 20px;
     border: 1px solid #fef7ca;
     border-radius: 5px;
-    font-size: x-large;
+    font-size: large;
     overflow: hidden;
     display: flex;
     flex-direction: row;
@@ -60,7 +60,12 @@
 .boxcenter {
     justify-content: center;
     margin: 30px;
-    margin: 30px;
+}
+
+.boxcenterHome {
+    justify-content: center;
+    margin-top: 30%;
+    margin-bottom: 30%;
 }
 
 form {
@@ -81,7 +86,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size:xx-large;
+    font-size:x-large;
     background-color: #283618;
     justify-content: center;
     align-items: center;
@@ -92,7 +97,7 @@ body {
     width: 90%;
     position: relative;
     color: #fef7ca;
-    top: 25%;
+    margin-top: 15%;
     left: 5%;
     transform: translate(-50,-50);
     text-align: center;
@@ -100,7 +105,6 @@ body {
 
 .mainPage h1 {
     margin-bottom: -1vh;
-    color: #E9AE0B;
     color: #E9AE0B;
     font-size: 13vh;
 }
@@ -130,4 +134,12 @@ body {
     padding: 20px;
     margin-top: 10px;
     text-align: center;
+}
+
+.larger-font {
+    font-size: large;
+}
+
+.boxcenter h2 {
+    font-size: x-large;
 }
