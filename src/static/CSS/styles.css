@@ -7,7 +7,7 @@
 
   .card {
     flex-grow: 1;
-    width: 300px;
+    width: 30%;
     margin: 20px;
     border: 1px solid #fef7ca;
     border-radius: 5px;
@@ -33,6 +33,7 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+
 
 .popup {
     display: none;

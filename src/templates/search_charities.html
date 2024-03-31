@@ -16,7 +16,7 @@
         <div class="popup-content">
             <img src="" alt="analysis of charity one">
             <p>omg good charity</p>
-            <button id="close-button1">Close</button>
+            <button class="close-button">Close</button>
         </div>
     </div>
 </div>
@@ -31,7 +31,7 @@
         <div class="popup-content">
             <img src="" alt="analysis of charity two">
             <p>omg also good charity</p>
-            <button id="close-button2">Close</button>
+            <button class="close-button">Close</button>
         </div>
     </div>
 </div>
@@ -46,7 +46,52 @@
         <div class="popup-content">
             <img src="" alt="analysis of charity three">
             <p>omg bad charity</p>
-            <button id="close-button3">Close</button>
+            <button class="close-button">Close</button>
+        </div>
+    </div>
+</div>
+
+<div class="card" id="card4">
+    <img src="">
+    <div class="card-content">
+        <h2>Charity 4: </h2>
+        <p>cool info</p>
+    </div>
+    <div class="popup" id="popup4">
+        <div class="popup-content">
+            <img src="" alt="analysis of charity four">
+            <p>omg good charity</p>
+            <button class="close-button">Close</button>
+        </div>
+    </div>
+</div>
+
+<div class="card" id="card5">
+    <img src="">
+    <div class="card-content">
+        <h2>Charity 5: </h2>
+        <p>cool info</p>
+    </div>
+    <div class="popup" id="popup5">
+        <div class="popup-content">
+            <img src="" alt="analysis of charity five">
+            <p>omg also good charity</p>
+            <button class="close-button">Close</button>
+        </div>
+    </div>
+</div>
+
+<div class="card" id="card6">
+    <img src="">
+    <div class="card-content">
+        <h2>Charity 6: </h2>
+        <p>cool info</p>
+    </div>
+    <div class="popup boxcenter" id="popup6" >
+        <div class="popup-content">
+            <img src="" alt="analysis of charity six">
+            <p>omg bad charity</p>
+            <button class="c">Close</button>
         </div>
     </div>
 </div>
@@ -66,11 +111,11 @@
     const closeButtons = document.querySelectorAll('.close-button');
 
     closeButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const popupId = button.id.replace('close-button', 'popup');
-            const popup = document.getElementById(popupId);
-            popup.style.display = 'none';
-        });
+    button.addEventListener('click', () => {
+        event.stopPropagation();
+        const popup = button.closest('.popup');
+        popup.style.display = 'none';
+    });
     });
 </script>
 
