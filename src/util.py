@@ -1,6 +1,13 @@
 import json
+import os
+import shutil
+import textwrap
+
+import numpy as np
 import prompts
 import configs
+
+import matplotlib.pyplot as plt
 import vertexai
 from vertexai.generative_models import GenerativeModel
 
@@ -73,6 +80,90 @@ def get_charities(
 
   return output
 
+
+def graphing(
+    charities: dict,
+    dir: str = 'images/'
+) -> dict[str, str]:
+  
+  label_size = 8
+
+  path = os.path.join('static', dir)
+  try:
+    shutil.rmtree(dir)
+  except FileNotFoundError:
+    pass
+  os.makedirs(path, exist_ok=True)
+
+  result = {}
+  for charity in charities:
+    # Access spending data from the JSON
+    data = charities[charity]["spending"]
+
+    # Calculate total spending
+    total_spending = sum(data.values())
+
+    # Calculate spending percentages
+    spending_percentages = {category: (
+      value / total_spending) * 100 for category, value in data.items()}
+
+    # Prepare pie chart data
+    pie_chart_data = list(spending_percentages.values())
+    pie_chart_labels = list(spending_percentages.keys())
+
+    # Create pie chart
+    plt.figure(figsize=(3, 3))
+    plt.pie(pie_chart_data, autopct="%1.1f%%")
+    plt.title("Spending Breakdown")
+    plt.legend(loc='upper center', labels=pie_chart_labels, fontsize=label_size)
+    file_path = os.path.join(path, charity.replace(' ', '_') + '.png')
+    with open(file_path, 'wb') as f:
+      plt.savefig(f)
+    result[charity] = file_path
+
+    agencies = list(charities.keys())
+    transparency = np.array([])
+    perception = np.array([])
+    for i in charities:
+      transparency = np.append(
+        transparency, charities[i]["detail"]["FinancialTransparency"])
+      perception = np.append(
+        perception, charities[i]["detail"]["PublicPerception"])
+
+  weight_counts = {
+      "Transparency": transparency,
+      "Perception": perception
+  }
+  width = 0.5
+
+  fig, ax = plt.subplots()
+  bottom = np.zeros(3)
+
+
+  for name, weight_count in weight_counts.items():
+    ax.bar(
+      [textwrap.fill(name, 15) for name in agencies],
+      weight_count,
+      width,
+      label=name,
+      bottom=bottom,
+    )
+    for i in range(len(weight_count)):
+      try:
+        bottom[i] += float(weight_count[i])
+      except (TypeError, ValueError):
+        pass
+
+  ax.set_title("Rating of each charity")
+  ax.xaxis.label.set_size(label_size)
+  ax.legend(loc="upper right", fontsize=label_size)
+  
+  file_path = os.path.join(path, 'ratings.png')
+  with open(file_path, 'wb') as f:
+    fig.savefig(f)
+  
+  result['combined'] = file_path
+  return result
 
 if __name__ == '__main__':
   import pprint

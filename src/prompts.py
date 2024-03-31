@@ -6,7 +6,7 @@ Mission,
 PublicPerception (1-10),
 Impact,
 FundraisingTechnique,
-FinancialTransparency.
+FinancialTransparency (1-10).
 
 The output should be in json.
 

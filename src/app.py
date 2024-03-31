@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
-from util import get_charities
+
+from util import get_charities, graphing
 
 app = Flask(__name__)
 
@@ -40,12 +41,24 @@ def charity_info():
 def search_charities():
     if request.method == 'GET':
         return render_template('search_charities.html')
-    else:
-        charity_type = request.form['charities']
-        charity_location = request.form['locations']
-        charities = get_charities(location=charity_location, category=charity_type)
+    charity_type = request.form['charities']
+    charity_location = request.form['locations']
 
-        return render_template('search_charities.html', charity=[charity_type, charity_location], charities=charities)
+    charities = get_charities(charity_location, charity_type)
+    filenames = graphing(charities)
+    listview = []
+    for name, info in charities.items():
+        dict_ = info['detail']
+        dict_['Name'] = name
+        dict_['Image'] = filenames[name]
+        listview.append(dict_)
+
+    return render_template(
+        'search_charities.html',
+        charity=[charity_type, charity_location],
+        charities=listview,
+        combined_image=filenames['combined']
+    )
 
 
 if __name__ == '__main__':
