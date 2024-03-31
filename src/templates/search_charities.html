@@ -6,99 +6,27 @@
 </div>
 
 <div class="container">
-<div class="card" id="card1">
-    <img src="">
-    <div class="card-content">
-        <h2>{{ charities[0].Name }}</h2>
-        <p><strong>Mission:</strong><br> {{ charities[0].Mission }}</p>
-        <p><strong>Public Perception (1 - 10):</strong> {{ charities[0].Publicperceptionsonthescalefrom1to10 }}</p>
-        <p><strong>Impact:</strong> <br>{{ charities[0].Impact }}</p>
-        <p><strong>Fundraising Technique:</strong> <br>{{ charities[0].FundraisingTechnique }}</p>
-        <p><strong>Financial Transparency (1 - 10):</strong> {{ charities[0].Financialtransparency }}</p>
-    </div>
-    <div class="popup" id="popup1">
-        <div class="popup-content">
-            <img src="" alt="analysis of charity one">
-            <p>omg good charity</p>
-            <button class="close-button">Close</button>
+    {% for i in range(3) %}
+    <div class="card" id="card{{ i }}">
+        <img src="{{ charities[i].Image }}">
+        <div class="card-content">
+            <h2>{{ charities[i].Name }}</h2>
+            <p><strong>Mission:</strong><br> {{ charities[i].Mission }}</p>
+            <p><strong>Public Perception (1 - 10):</strong> {{ charities[i].PublicPerception  }}</p>
+            <p><strong>Impact:</strong> <br>{{ charities[i].Impact }}</p>
+            <p><strong>Fundraising Technique:</strong> <br>{{ charities[i].FundraisingTechnique }}</p>
+            <p><strong>Financial Transparency (1 - 10):</strong> {{ charities[i].FinancialTransparency }}</p>
+        </div>
+        <div class="popup" id="popup1">
+            <div class="popup-content">
+                <img src="" alt="analysis of charity {{ i }}">
+                <p>omg good charity</p>
+                <button class="close-button">Close</button>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="card" id="card2">
-    <img src="">
-    <div class="card-content">
-        <h2>{{ charities[1].name }}</h2>
-        <p>cool info</p>
-    </div>
-    <div class="popup" id="popup2">
-        <div class="popup-content">
-            <img src="" alt="analysis of charity two">
-            <p>omg also good charity</p>
-            <button class="close-button">Close</button>
-        </div>
-    </div>
-</div>
-
-<div class="card" id="card3">
-    <img src="">
-    <div class="card-content">
-        <h2>{{ charities[2].name }}</h2>
-        <p>cool info</p>
-    </div>
-    <div class="popup boxcenter" id="popup3" >
-        <div class="popup-content">
-            <img src="" alt="analysis of charity three">
-            <p>omg bad charity</p>
-            <button class="close-button">Close</button>
-        </div>
-    </div>
-</div>
-
-<!-- <div class="card" id="card4">
-    <img src="">
-    <div class="card-content">
-        <h2>{{ charities[3].name }}</h2>
-        <p>cool info</p>
-    </div>
-    <div class="popup" id="popup4">
-        <div class="popup-content">
-            <img src="" alt="analysis of charity four">
-            <p>omg good charity</p>
-            <button class="close-button">Close</button>
-        </div>
-    </div>
-</div>
-
-<div class="card" id="card5">
-    <img src="">
-    <div class="card-content">
-        <h2>{{ charities[4].name }}</h2>
-        <p>cool info</p>
-    </div>
-    <div class="popup" id="popup5">
-        <div class="popup-content">
-            <img src="" alt="analysis of charity five">
-            <p>omg also good charity</p>
-            <button class="close-button">Close</button>
-        </div>
-    </div>
-</div>
-
-<div class="card" id="card6">
-    <img src="">
-    <div class="card-content">
-        <h2>{{ charities[5].name }}</h2>
-        <p>cool info</p>
-    </div>
-    <div class="popup boxcenter" id="popup6" >
-        <div class="popup-content">
-            <img src="" alt="analysis of charity six">
-            <p>omg bad charity</p>
-            <button class="close-button">Close</button>
-        </div>
-    </div>
-</div> -->
+    {% endfor %}
 </div>
 
 <script>

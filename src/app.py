@@ -77,14 +77,22 @@ def charity_info():
 def search_charities():
     if request.method == 'GET':
         return render_template('search_charities.html')
-    else:
-        charity_type = request.form['charities']
-        charity_location = request.form['locations']
+    charity_type = request.form['charities']
+    charity_location = request.form['locations']
 
-        charities = get_charities(charity_location, charity_type)
-        filenames = graphing(charities)
+    charities = get_charities(charity_location, charity_type)
+    filenames = graphing(charities)
+    listview = []
+    for name, info in charities.items():
+        dict_ = info['detail']
+        dict_['Name'] = name
+        dict_['Image'] = filenames[name]
+        listview.append(dict_)
 
-        return render_template('search_charities.html', charity=[charity_type, charity_location], charities=charities)
+    return render_template(
+        'search_charities.html',
+        charity=[charity_type, charity_location],
+        charities=listview)
 
 
 if __name__ == '__main__':
