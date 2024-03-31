@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request
 
+from util import get_charities, graphing
+
 app = Flask(__name__)
 
 charities = [
@@ -78,6 +80,9 @@ def search_charities():
     else:
         charity_type = request.form['charities']
         charity_location = request.form['locations']
+
+        charities = get_charities(charity_location, charity_type)
+        filenames = graphing(charities)
 
         return render_template('search_charities.html', charity=[charity_type, charity_location], charities=charities)
 

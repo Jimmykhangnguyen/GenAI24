@@ -1,6 +1,10 @@
 import json
+
+import numpy as np
 import prompts
 import configs
+
+import matplotlib.pyplot as plt
 import vertexai
 from vertexai.generative_models import GenerativeModel
 
@@ -73,6 +77,65 @@ def get_charities(
 
   return output
 
+
+def graphing(
+    charities: dict,
+    dir: str = 'images/'
+) -> list:
+  lst = []
+  for agency in charities:
+    # Access spending data from the JSON
+    data = charities[agency]["spending"]
+
+    # Calculate total spending
+    total_spending = sum(data.values())
+
+    # Calculate spending percentages
+    spending_percentages = {category: (
+      value / total_spending) * 100 for category, value in data.items()}
+
+    # Prepare pie chart data
+    pie_chart_data = list(spending_percentages.values())
+    pie_chart_labels = list(spending_percentages.keys())
+
+    # Create pie chart
+    plt.figure(figsize=(3, 3))
+    plt.pie(pie_chart_data, labels=pie_chart_labels, autopct="%1.1f%%")
+    plt.title(agency + " Spending Percentages")
+    with open(dir + agency.replace(' ', '_') + '.png', 'wb') as f:
+      plt.savefig(f)
+    lst.append(dir + agency.replace(' ', '_') + '.png')
+
+    agencies = list(charities.keys())
+    transparency = np.array([])
+    perception = np.array([])
+    for i in charities:
+      transparency = np.append(
+        transparency, charities[i]["detail"]["FinancialTransparency"])
+      perception = np.append(
+        perception, charities[i]["detail"]["PublicPerception"])
+
+  weight_counts = {
+      "Transparency": transparency,
+      "Perception": perception
+  }
+  width = 0.5
+
+  fig, ax = plt.subplots()
+  bottom = np.zeros(3)
+
+  for boolean, weight_count in weight_counts.items():
+    p = ax.bar(agencies, weight_count, width, label=boolean, bottom=bottom)
+    bottom += weight_count
+
+  ax.set_title("Rating of each charity")
+  ax.legend(loc="upper right")
+
+  with open('images/' + 'ratings.png', 'wb') as f:
+    fig.savefig(f)
+  lst.append('images/' + 'ratings.png')
+
+  return lst
 
 if __name__ == '__main__':
   import pprint
