@@ -3,22 +3,24 @@
 {% block content %}
 {% if have_charity == "Yes" %}
 
+<div class="questions">
 <form action="/charity_info" method="POST">
-    <p>What is the name of the charity?</p>
+    <h2>What is the name of the charity?</h2>
     <input type="text" id="charity_name" name="charity_name">
     <input type="submit" value="Submit">
 </form>
 {% else %}
 <br>
 <form action="/search_charities" method="POST">
-    <p>What type of charity would you like to donate to?</p>
+    <h2>What type of charity would you like to donate to?</h2>
     <select name="charities" id="charities">
         <option value="environmental">Environmental</option>
         <option value="children">Children's</option>
         <option value="animal">Animal</option>
         <option value="human_rights">Human Rights</option>
     </select>
-    <p>Where do you want the charity to donate to?</p>
+    <br>
+    <h2>Where do you want the charity to donate to?</h2>
     <select name="locations" id="locations">
         <option value="canada">Canada</option>
         <option value="united_states">USA</option>
@@ -27,6 +29,7 @@
     </select>
     <input type="submit" value="Submit">
 </form>
+</div>
 {% endif %}
 
 {% endblock %}

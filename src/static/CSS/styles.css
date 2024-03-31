@@ -1,8 +1,3 @@
-body {
-    background-color: #FEFAE0;
-    color: #283638;
-}
-
 .center {
     margin: auto;
     width: 50%;
@@ -14,7 +9,7 @@ body {
     flex-grow: 1;
     width: 300px;
     margin: 20px;
-    border: 1px solid #283638;
+    border: 1px solid #fef7ca;
     border-radius: 5px;
     overflow: hidden;
     display: flex;
@@ -61,21 +56,32 @@ body {
 
 .boxcenter {
     justify-content: center;
-}body {
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    margin: 30px;
+}
+
+body {
     margin: 0;
     padding: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: #3B5C10;
-    display: flex;
+    background-color: #283618;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    color:#fef7ca; 
 }
 
 .mainPage {
     width: 90%;
     position: absolute;
-    color: white;
+    color: #fef7ca;
     top: 25%;
     left: 5%;
     transform: translate(-50,-50);
@@ -84,13 +90,14 @@ body {
 
 .mainPage h1 {
     margin-bottom: -1vh;
-    color: rgb(246, 213, 27);
+    color: #E9AE0B;
     font-size: 13vh;
 }
 
 .mainPage p {
     font-size: 17px;
     margin-bottom: -8px;
+
 }
 
 .charity-cards {
@@ -104,4 +111,15 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.charityInfo {
+    justify-content: center;
+    padding: 20px;
+    margin-top: 10px;   
+    text-align: center;
+}
+
+br {
+    padding: 20px;
 }
